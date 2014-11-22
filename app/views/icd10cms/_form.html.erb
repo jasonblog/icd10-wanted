@@ -1,0 +1,37 @@
+<%= form_for(@icd10cm) do |f| %>
+  <% if @icd10cm.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@icd10cm.errors.count, "error") %> prohibited this icd10cm from being saved:</h2>
+
+      <ul>
+      <% @icd10cm.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :code %><br>
+    <%= f.text_field :code %>
+  </div>
+  <div class="field">
+    <%= f.label :disease_en %><br>
+    <%= f.text_field :disease_en %>
+  </div>
+  <div class="field">
+    <%= f.label :disease_zhtw %><br>
+    <%= f.text_field :disease_zhtw %>
+  </div>
+  <div class="field">
+    <%= f.label :disease_synonym %><br>
+    <%= f.text_area :disease_synonym %>
+  </div>
+  <div class="field">
+    <%= f.label :clinical %><br>
+    <%= f.text_area :clinical %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
