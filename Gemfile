@@ -38,5 +38,14 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Use twitter bootstrap front end
 gem 'twitter-bootstrap-rails'
+
+# Use elasticsearch to implment search functionality
 gem 'elasticsearch-rails'
+
+# Use roo to parse original excel file
+gem 'roo'
+
+# Use spreadsheet for excel type used by roo
+gem 'spreadsheet'
