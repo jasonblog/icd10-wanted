@@ -4,7 +4,14 @@ class Icd10cmsController < ApplicationController
   # GET /icd10cms
   # GET /icd10cms.json
   def index
-    @icd10cms = Icd10cm.all
+    @icd10cms = Icd10cm.page(params[:page]).per(50)
+  end
+
+  # GET /articles/search
+  def search
+    @icd10cms = Icd10cm.search(params[:q]).records.page(params[:page]).per(50)
+
+    render action: "index"
   end
 
   # GET /icd10cms/1

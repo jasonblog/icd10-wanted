@@ -36,9 +36,24 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    elasticsearch (1.0.6)
+      elasticsearch-api (= 1.0.6)
+      elasticsearch-transport (= 1.0.6)
+    elasticsearch-api (1.0.6)
+      multi_json
+    elasticsearch-model (0.1.6)
+      activesupport (> 3)
+      elasticsearch (> 0.4)
+      hashie
     elasticsearch-rails (0.1.6)
+    elasticsearch-transport (1.0.6)
+      faraday
+      multi_json
     erubis (2.7.0)
     execjs (2.2.2)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
+    hashie (3.3.1)
     hike (1.2.3)
     i18n (0.6.11)
     jbuilder (2.2.5)
@@ -48,12 +63,16 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    kaminari (0.16.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.4.3)
     mini_portile (0.6.1)
     minitest (5.4.3)
     multi_json (1.10.1)
+    multipart-post (2.0.0)
     nokogiri (1.6.4.1)
       mini_portile (~> 0.6.0)
     rack (1.5.2)
@@ -126,9 +145,11 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  elasticsearch-model
   elasticsearch-rails
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   rails (= 4.1.6)
   roo
   sass-rails (~> 4.0.3)

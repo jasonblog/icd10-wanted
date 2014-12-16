@@ -43,9 +43,13 @@ gem 'twitter-bootstrap-rails'
 
 # Use elasticsearch to implment search functionality
 gem 'elasticsearch-rails'
+gem 'elasticsearch-model'
 
 # Use roo to parse original excel file
 gem 'roo'
 
 # Use spreadsheet for excel type used by roo
 gem 'spreadsheet'
+
+# for index page
+gem 'kaminari'
