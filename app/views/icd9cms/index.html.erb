@@ -1,0 +1,44 @@
+<h4 class="text-center">ICD9CM Table</h4>
+
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <%= form_tag search_icd9cms_path, :class => "input-group stylish-input-group", method: 'get' do %>
+      <%= text_field_tag :q, params[:q], :class => "form-control", :placeholder => "Search for code/disease (English, Chinese)" %>
+      <span class="input-group-addon">
+        <%= submit_tag :search, :class => "btn btn-default glyphicon glyphicon-search"  %>
+      </span>
+    <% end %>
+  </div>
+<div>
+<%= paginate @icd9cms %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>English Disease</th>
+      <th>中文病名</th>
+      <th>ICD10CM code</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @icd9cms.each do |icd9cm| %>
+      <tr>
+        <td><%= icd9cm.code %></td>
+        <td><%= icd9cm.disease_en %></td>
+        <td><%= icd9cm.disease_zhtw %></td>
+        <td>
+          <% icd9cm.icd10cms.each do |cmv9| %>
+            <%= link_to cmv9.code, icd9cm, :class => 'btn btn-default btn-xs' %><span>;</span>
+          <% end %>
+        </td>
+        <td><%= link_to 'Edit', edit_icd9cm_path(icd9cm) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Icd9cm', new_icd9cm_path %>

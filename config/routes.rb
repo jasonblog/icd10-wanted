@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     collection {get :search}
   end
 
+  resources :icd9cms do
+    collection {get :search}
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

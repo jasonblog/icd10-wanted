@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @icd9cm.code %>
+</p>
+
+<p>
+  <strong>Disease en:</strong>
+  <%= @icd9cm.disease_en %>
+</p>
+
+<p>
+  <strong>Disease zhtw:</strong>
+  <%= @icd9cm.disease_zhtw %>
+</p>
+
+<p>
+  <strong>Disease synonym:</strong>
+  <%= @icd9cm.disease_synonym %>
+</p>
+
+<p>
+  <strong>Clinical:</strong>
+  <%= @icd9cm.clinical %>
+</p>
+
+<%= link_to 'Edit', edit_icd9cm_path(@icd9cm) %> |
+<%= link_to 'Back', icd9cms_path %>
