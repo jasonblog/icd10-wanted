@@ -1,23 +1,22 @@
-<h1>Listing icd10cms</h1>
+<h4 class="text-center">ICD10CM Table</h4>
 
-  <hr>
-  <%= form_tag search_icd10cms_path, method: 'get' do %>
-    <%= label_tag :query %>
-    <%= text_field_tag :q, params[:q] %>
-    <%= submit_tag :search %>
-  <% end %>
-  <hr>
-
+<div class="row">
+  <div class="col-lg-10 col-md-offset-1">
+    <%= form_tag search_icd10cms_path, :class => "navbar-form navbar-center", method: 'get' do %>
+      <%= text_field_tag :q, params[:q], :class => "form-control", :placeholder => "Search for code/disease (English, Chinese)" %>
+      <%= submit_tag :search, :class => "btn btn-default"  %>
+    <% end %>
+  </div>
+<div>
 <%= paginate @icd10cms %>
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Code</th>
-      <th>Disease en</th>
-      <th>Disease zhtw</th>
-      <th>Disease synonym</th>
-      <th>Clinical</th>
-      <th colspan="3"></th>
+      <th>English Disease</th>
+      <th>中文病名</th>
+      <th>ICD9CM code</th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
@@ -27,11 +26,12 @@
         <td><%= icd10cm.code %></td>
         <td><%= icd10cm.disease_en %></td>
         <td><%= icd10cm.disease_zhtw %></td>
-        <td><%= icd10cm.disease_synonym %></td>
-        <td><%= icd10cm.clinical %></td>
-        <td><%= link_to 'Show', icd10cm %></td>
+        <td>
+          <% icd10cm.icd9cms.each do |cmv9| %>
+            <%= link_to cmv9.code, icd10cm, :class => 'btn btn-default btn-xs' %><span>;</span>
+          <% end %>
+        </td>
         <td><%= link_to 'Edit', edit_icd10cm_path(icd10cm) %></td>
-        <td><%= link_to 'Destroy', icd10cm, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
