@@ -1,29 +1,25 @@
+<ol class="breadcrumb">
+  <li>top</li>
+  <li class="active"><%= @icd10cm.code %></li>
+</ol>
+
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Code:</strong>
-  <%= @icd10cm.code %>
-</p>
+<dl class="dl-horizontal">
+  <dt>ICD10 診斷碼</dt>
+  <dd><%= @icd10cm.code %></dd>
 
-<p>
-  <strong>Disease en:</strong>
-  <%= @icd10cm.disease_en %>
-</p>
+  <dt>英文疾病名</dt>
+  <dd><%= @icd10cm.disease_en %></dd>
 
-<p>
-  <strong>Disease zhtw:</strong>
-  <%= @icd10cm.disease_zhtw %>
-</p>
+  <dt>中文疾病名</dt>
+  <dd><%= @icd10cm.disease_zhtw %></dd>
 
-<p>
-  <strong>Disease synonym:</strong>
-  <%= @icd10cm.disease_synonym %>
-</p>
+  <dt>同義詞</dt>
+  <dd><%= @icd10cm.disease_synonym %></dd>
+  <dt>診斷</dt>
+  <dd><%= @icd10cm.clinical %></dd>
+</dl>
 
-<p>
-  <strong>Clinical:</strong>
-  <%= @icd10cm.clinical %>
-</p>
-
-<%= link_to 'Edit', edit_icd10cm_path(@icd10cm) %> |
 <%= link_to 'Back', icd10cms_path %>
