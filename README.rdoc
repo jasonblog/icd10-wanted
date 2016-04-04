@@ -1,28 +1,25 @@
-== README
+= README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== Introduction
 
-Things you may want to cover:
+ICD-10-CM/ICD-9-CM 查詢引擎。透過 elasticsearch + rails 來實現。架設步驟，
 
-* Ruby version
+0. 建立 rails 及 elasticsearch 標準環境
+1. 到{健保局}[http://www.nhi.gov.tw/webdata/webdata.aspx?menu=20&menu_id=1087&webdata_id=4679]
+   網站抓取以下文件(可自行抓取更新檔)，
+   * 2014年版_ICD-10-CM/PCS編碼指引(104.01.07新增)
+   * 2014年版_ICD-9-CM2001年版與ICD-10-CM/PCS對應檔(104.11.12更新)
+   並置放至 db/ 下。
+2. 修改 seeds.db 中的icd10cm_file 及 icdcm_9_10_map_file 路徑。
+3. 執行 `rake db:migrate` 及 `rake db:seed`
 
-* System dependencies
+== TODO list
+* 改用 elasticsearch-river 輸入資料至 elasticsearch。
+* keyword auto-complete
+* 修正 UI
+* 增加 ICD-10-PCS 及 ICD-9-PCS 資料表。
 
-* Configuration
+== Disclaimer
+本專案僅作為 rails 程式設計練習目的，不保證資料的正確性、版權、不作為醫療用途。
+如有侵權疑慮敬請告知。
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
